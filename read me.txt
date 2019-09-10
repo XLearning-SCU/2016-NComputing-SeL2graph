@@ -1,0 +1,38 @@
+The databases and codes were used to reproduce the results reported in our submission. 
+
+Xi Peng, Miaolong Yuan, Zhiding Yu, Wei Yun Yau and Lei Zhang,
+Semi-supervised Subspace Learning with L2graph,
+Neurocomputing, Accepted
+
+% Written by Xi Peng @ I2R A*STAR
+% Sep., 2015.
+% if you have any questions, pls feel free to contact with me via pangsaai[at]gmail[dot]com
+
+% =========================================================================
+1. If you would like to reproduce the result, please assign the parameters with the value reported in the submission, otherwise, specify some possible values for the parameters.
+
+3. The tuned parameter in our submission is determined using a validation data. More specifically, we obtain 11 paritions of the data set (e.g., AR) consisting of traning and testing sets. We randomly use one parition to find optimal parameters for all the methods, and then used the tuned parameters to perform 10 tests on the remaining 10 paritions. 
+
+3. The codes were produced in MATLAB2014a 64 bit on a MACBOOK.
+
+
+
+========================_SeLgraph========================
+The implementation of our method 
+
+1. SeL2Graph_main.m: to repeatly perform tests on a data set with the fixed parameters;
+3. BuildingL2Graph.m: the code to build a L2graph;
+4. Embedding.m: semi-supervisedly embed the L2graph into a low-dimensional space, where the feature dim equals the number of subject;
+5. AnalyzeResult_Rep: to calculate the $mean\pm std$ based on 'SeL2Graph_main.m';
+
+======================== usages ========================
+Some codes sharing by the tested methods.
+1. Eigenface_f.m: reduce the dim. of the data using PCA;2
+2. EuDist2.m: calculate the pairwise distance among data points, for LPP;
+3. mySVD.m: perform SVD;
+
+======================== classifers ========================
+The used three classifiers, i.e, SRC, SVM with linear kernel, and the nearest neighbor classifier.
+Note that:
+1. if you want to perform experiments on Windows instead of Mac OS, pls copy the files under the fold of `SVM_win' to `SVM' ;
+2. if you use 32 bits machine, pls re-complie `SVM' on you machine.
